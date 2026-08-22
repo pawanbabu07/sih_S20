@@ -2,7 +2,7 @@
   "modelVersion": "fraud-model-v2.0",
   "modelType": "LogisticRegression",
   "status": "ACTIVE",
-  "trainingDate": "2026-08-22 06:50:43 UTC",
+  "trainingDate": "2026-08-22 15:10:21 UTC",
   "datasetVersion": "synthetic_v2.0",
   "trainingDatasetSize": 6000,
   "classDistribution": {
