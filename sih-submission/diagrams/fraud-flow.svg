@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#070a14"/>
+    </linearGradient>
+    <linearGradient id="stepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="800" fill="url(#bgGrad)" rx="16"/>
+  <rect x="10" y="10" width="880" height="780" fill="none" stroke="#1e293b" stroke-width="2" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="45" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="20" font-weight="700" text-anchor="middle" letter-spacing="1">END-TO-END FRAUD EVALUATION FLOW</text>
+  <text x="450" y="68" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Pre-Execution Interception &amp; Real-Time Risk Streaming Sequence</text>
+
+  <!-- Flow Steps -->
+  <!-- Step 1 -->
+  <g transform="translate(300, 90)">
+    <rect width="300" height="45" rx="8" fill="url(#stepGrad)" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="150" y="27" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle">1. User Initiates Payment (UPI)</text>
+  </g>
+  <line x1="450" y1="135" x2="450" y2="155" stroke="#3b82f6" stroke-width="2"/>
+  <polygon points="450,158 446,150 454,150" fill="#3b82f6"/>
+
+  <!-- Step 2 -->
+  <g transform="translate(250, 160)">
+    <rect width="400" height="50" rx="8" fill="url(#stepGrad)" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="200" y="22" fill="#22d3ee" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle">2. Collect Multi-Vector Telemetry</text>
+    <text x="200" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Amount, Time, Recipient UPI, Device Hash, Geo, Active Voice ID</text>
+  </g>
+  <line x1="450" y1="210" x2="450" y2="230" stroke="#06b6d4" stroke-width="2"/>
+  <polygon points="450,233 446,225 454,225" fill="#06b6d4"/>
+
+  <!-- Step 3: Parallel Engines -->
+  <g transform="translate(100, 235)">
+    <rect width="700" height="85" rx="10" fill="url(#stepGrad)" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="350" y="22" fill="#818cf8" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">3. Parallel Signal Analysis Sub-Engines</text>
+    
+    <rect x="20" y="35" width="150" height="38" rx="6" fill="#1e1e38" stroke="#38bdf8" stroke-width="1"/>
+    <text x="95" y="58" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Transaction ML (W=0.30)</text>
+
+    <rect x="185" y="35" width="150" height="38" rx="6" fill="#1e1e38" stroke="#a855f7" stroke-width="1"/>
+    <text x="260" y="58" fill="#c084fc" font-family="system-ui, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Behavioral Baseline (W=0.20)</text>
+
+    <rect x="350" y="35" width="150" height="38" rx="6" fill="#1e1e38" stroke="#10b981" stroke-width="1"/>
+    <text x="425" y="58" fill="#34d399" font-family="system-ui, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Device Trust (W=0.20)</text>
+
+    <rect x="515" y="35" width="165" height="38" rx="6" fill="#1e1e38" stroke="#f43f5e" stroke-width="1"/>
+    <text x="597" y="58" fill="#fb7185" font-family="system-ui, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Voice (0.15) &amp; Graph (0.15)</text>
+  </g>
+  <line x1="450" y1="320" x2="450" y2="340" stroke="#6366f1" stroke-width="2"/>
+  <polygon points="450,343 446,335 454,335" fill="#6366f1"/>
+
+  <!-- Step 4 -->
+  <g transform="translate(250, 345)">
+    <rect width="400" height="50" rx="8" fill="url(#stepGrad)" stroke="#f59e0b" stroke-width="2"/>
+    <text x="200" y="22" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">4. Central Risk Engine Formulation</text>
+    <text x="200" y="40" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Dynamic Normalization → Final Score 0–100 + XAI Factors</text>
+  </g>
+  <line x1="450" y1="395" x2="450" y2="415" stroke="#f59e0b" stroke-width="2"/>
+  <polygon points="450,418 446,410 454,410" fill="#f59e0b"/>
+
+  <!-- Step 5: Decision Matrix -->
+  <g transform="translate(150, 420)">
+    <rect width="600" height="110" rx="10" fill="url(#stepGrad)" stroke="#64748b" stroke-width="1.5"/>
+    <text x="300" y="24" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">5. Explainable Risk-Tier Routing</text>
+
+    <!-- 3 Tier Cards -->
+    <rect x="20" y="38" width="170" height="58" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+    <text x="105" y="58" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">LOW (0–39)</text>
+    <text x="105" y="78" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Seamless Pass / Instant</text>
+
+    <rect x="215" y="38" width="170" height="58" rx="6" fill="#78350f" stroke="#f59e0b" stroke-width="1"/>
+    <text x="300" y="58" fill="#fcd34d" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">MEDIUM (40–69)</text>
+    <text x="300" y="78" fill="#fde68a" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Warn &amp; Verify Recipient</text>
+
+    <rect x="410" y="38" width="170" height="58" rx="6" fill="#7f1d1d" stroke="#ef4444" stroke-width="1"/>
+    <text x="495" y="58" fill="#fca5a5" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">HIGH (70–100)</text>
+    <text x="495" y="78" fill="#fecaca" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Strong XAI Warning / Cancel</text>
+  </g>
+
+  <!-- Step 6: Split Action -->
+  <path d="M 300 530 L 300 570 L 220 570 L 220 600" fill="none" stroke="#34d399" stroke-width="2"/>
+  <polygon points="220,603 216,595 224,595" fill="#34d399"/>
+
+  <path d="M 600 530 L 600 570 L 680 570 L 680 600" fill="none" stroke="#ef4444" stroke-width="2"/>
+  <polygon points="680,603 676,595 684,595" fill="#ef4444"/>
+
+  <!-- Left: User Action -->
+  <g transform="translate(100, 605)">
+    <rect width="240" height="60" rx="8" fill="url(#stepGrad)" stroke="#10b981" stroke-width="1.5"/>
+    <text x="120" y="24" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">User Action Decision</text>
+    <text x="120" y="44" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Cancels Scam OR Confirms Legitimate</text>
+  </g>
+
+  <!-- Right: Admin Real-Time Event -->
+  <g transform="translate(560, 605)">
+    <rect width="240" height="60" rx="8" fill="url(#stepGrad)" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="120" y="24" fill="#f87171" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Real-Time Socket Dispatch</text>
+    <text x="120" y="44" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Pushed to Admin Live Feed + Case Spawn</text>
+  </g>
+
+  <!-- Bottom: Audit & Settlement -->
+  <line x1="220" y1="665" x2="220" y2="700" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="680" y1="665" x2="680" y2="700" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="220" y1="700" x2="680" y2="700" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="450" y1="700" x2="450" y2="720" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="450,723 446,715 454,715" fill="#64748b"/>
+
+  <g transform="translate(275, 725)">
+    <rect width="350" height="45" rx="8" fill="url(#stepGrad)" stroke="#64748b" stroke-width="1"/>
+    <text x="175" y="28" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">Immutable Audit Log &amp; Transaction Persistence</text>
+  </g>
+</svg>

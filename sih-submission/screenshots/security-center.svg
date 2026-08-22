@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="100%" stop-color="#05070c"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+
+  <!-- Top Bar -->
+  <rect x="0" y="0" width="1200" height="65" fill="#0f172a"/>
+  <line x1="0" y1="65" x2="1200" y2="65" stroke="#1e293b" stroke-width="1"/>
+  <text x="50" y="40" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="18" font-weight="800">🛡️ FRAUDSHIELD</text>
+  <text x="240" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Dashboard</text>
+  <text x="340" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Make Payment</text>
+  <text x="460" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Voice Shield</text>
+  <text x="570" y="40" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Security Center 🔒</text>
+
+  <!-- Content -->
+  <g transform="translate(80, 100)">
+    <text x="0" y="30" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="24" font-weight="700">User Security Center &amp; Privacy Safeguards</text>
+    <text x="0" y="55" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Manage registered trusted hardware, view behavioral baselines, and configure privacy policies</text>
+
+    <!-- 2 Column Grid -->
+    <!-- Column 1: Registered Devices -->
+    <g transform="translate(0, 80)">
+      <rect width="500" height="520" rx="12" fill="url(#cardGrad)" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="30" y="40" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="16" font-weight="700">📱 Registered Devices &amp; Trust Scores</text>
+      <text x="30" y="60" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Hardware signatures authorized for your UPI payments</text>
+
+      <!-- Device Card 1: Primary (Trusted) -->
+      <g transform="translate(25, 80)">
+        <rect width="450" height="95" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+        <text x="20" y="30" fill="#34d399" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Google Pixel 7 (Primary Phone)</text>
+        <rect x="350" y="15" width="80" height="24" rx="12" fill="#064e3b"/>
+        <text x="390" y="31" fill="#34d399" font-family="system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">TRUST: 94%</text>
+        <text x="20" y="52" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Device Hash: sha256_d89f... | Android 14 • Chrome</text>
+        <text x="20" y="72" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">First Seen: 120 days ago | 42 Verified Transactions</text>
+      </g>
+
+      <!-- Device Card 2: Secondary Laptop -->
+      <g transform="translate(25, 190)">
+        <rect width="450" height="95" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
+        <text x="20" y="30" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="13" font-weight="700">MacBook Pro M2 (Home Workstation)</text>
+        <rect x="350" y="15" width="80" height="24" rx="12" fill="#1e1e38"/>
+        <text x="390" y="31" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">TRUST: 82%</text>
+        <text x="20" y="52" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Device Hash: sha256_b31c... | macOS • Safari</text>
+        <text x="20" y="72" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">First Seen: 45 days ago | 15 Verified Transactions</text>
+      </g>
+
+      <!-- Device Card 3: Untrusted / Blocked -->
+      <g transform="translate(25, 300)">
+        <rect width="450" height="95" rx="8" fill="#0f172a" stroke="#ef4444" stroke-width="1"/>
+        <text x="20" y="30" fill="#f87171" font-family="system-ui, sans-serif" font-size="13" font-weight="700">OnePlus 9 (Unrecognized Hardware)</text>
+        <rect x="350" y="15" width="80" height="24" rx="12" fill="#7f1d1d"/>
+        <text x="390" y="31" fill="#fca5a5" font-family="system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">FLAGGED</text>
+        <text x="20" y="52" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Device Hash: sha256_99b0... | Android 13</text>
+        <text x="20" y="72" fill="#ef4444" font-family="system-ui, sans-serif" font-size="10">Linked to 4 other accounts • Access Suspended</text>
+      </g>
+
+      <rect x="25" y="440" width="450" height="42" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="250" y="466" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">+ Register New Trusted Device</text>
+    </g>
+
+    <!-- Column 2: Behavioral Profile & Privacy Policy -->
+    <g transform="translate(530, 80)">
+      <rect width="510" height="520" rx="12" fill="url(#cardGrad)" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="30" y="40" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="16" font-weight="700">📊 Dynamic Behavioral Baseline</text>
+      <text x="30" y="60" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Continuously learned user spending patterns</text>
+
+      <!-- Baseline Metrics -->
+      <g transform="translate(25, 80)">
+        <rect width="460" height="150" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+        <text x="20" y="30" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">TYPICAL SPENDING WINDOW:</text>
+        <text x="220" y="30" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="700">08:00 AM — 10:30 PM</text>
+
+        <text x="20" y="60" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">AVERAGE TRANSACTION AMOUNT:</text>
+        <text x="220" y="60" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">₹ 4,850 (Normal Max: ₹ 15,000)</text>
+
+        <text x="20" y="90" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">PRIMARY GEOGRAPHIC HUB:</text>
+        <text x="220" y="90" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Bhubaneswar / Cuttack, Odisha</text>
+
+        <text x="20" y="120" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">DAILY TRANSACTION FREQUENCY:</text>
+        <text x="220" y="120" fill="#c084fc" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3–6 transactions / day</text>
+      </g>
+
+      <!-- DPDP & RBI Privacy Compliance Box -->
+      <text x="30" y="270" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="14" font-weight="700">🛡️ Privacy &amp; Data Minimization Controls</text>
+      <g transform="translate(25, 290)">
+        <rect width="460" height="190" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+        <text x="20" y="30" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="700">✅ DPDP Act 2023 &amp; RBI Compliance Enabled</text>
+        
+        <text x="20" y="60" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">• One-Way SHA-256 IP Hashing Active (No plain-text IPs)</text>
+        <text x="20" y="85" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">• Ephemeral Voice Processing (Zero permanent audio stored)</text>
+        <text x="20" y="110" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">• Strict Zero-Credential Ingestion (No MPIN / OTP logged)</text>
+        <text x="20" y="135" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">• Coarse City-Level Geofencing (No exact GPS tracking)</text>
+        <text x="20" y="160" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">All telemetry encrypted in-transit via TLS 1.3 &amp; at-rest via AES-256.</text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FraudShield — Smart India Hackathon Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #070a13;
+      color: #f8fafc;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Top Bar */
+    .top-bar {
+      height: 60px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .slide-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      background: #1e293b;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid #334155;
+    }
+    /* Slide Stage */
+    .stage {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+      padding: 40px 80px;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #38bdf8;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .slide-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .card {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(51, 65, 85, 0.6);
+      border-radius: 12px;
+      padding: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .card-red {
+      border-color: rgba(239, 68, 68, 0.4);
+      background: rgba(45, 18, 23, 0.5);
+    }
+    .card-green {
+      border-color: rgba(16, 185, 129, 0.4);
+      background: rgba(6, 78, 59, 0.4);
+    }
+    .card-blue {
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(15, 23, 42, 0.7);
+    }
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-body {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .highlight {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+    .danger {
+      color: #f87171;
+      font-weight: 600;
+    }
+    .success {
+      color: #34d399;
+      font-weight: 600;
+    }
+    table.table-custom {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    table.table-custom th {
+      background: #0f172a;
+      padding: 10px 14px;
+      text-align: left;
+      color: #94a3b8;
+      border-bottom: 2px solid #334155;
+    }
+    table.table-custom td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+      color: #cbd5e1;
+    }
+    pre {
+      background: #0a0e1a;
+      border: 1px solid #1e293b;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: #7dd3fc;
+      overflow-x: auto;
+      line-height: 1.4;
+    }
+    /* Controls Footer */
+    .controls {
+      height: 65px;
+      background: rgba(15, 23, 42, 0.9);
+      border-top: 1px solid rgba(51, 65, 85, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+    .btn {
+      background: #1e293b;
+      color: #f8fafc;
+      border: 1px solid #334155;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #334155;
+      border-color: #475569;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      border: none;
+      color: white;
+    }
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 15px;
+    }
+    .hero-subtitle {
+      font-size: 1.4rem;
+      color: #38bdf8;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+    .pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 6px;
+      background: #1e293b;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <div class="top-bar">
+    <div class="logo">
+      <span>🛡️</span> FRAUDSHIELD
+      <span class="pill" style="margin-left: 10px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);">SIH GRAND FINALE</span>
+    </div>
+    <div class="slide-counter" id="counter">Slide 1 / 16</div>
+  </div>
+
+  <!-- Stage Area -->
+  <div class="stage">
+
+    <!-- Slide 1: Title -->
+    <div class="slide active" id="slide-1">
+      <div class="slide-tag">Smart India Hackathon Final Presentation</div>
+      <div class="hero-title">Explainable Real-Time Fraud Shield</div>
+      <div class="hero-subtitle">For UPI, Voice Phishing and Social Engineering</div>
+      <div style="font-size: 1.2rem; color: #94a3b8; max-width: 800px; margin-bottom: 30px;">
+        "Detect. Explain. Warn. Protect." — Intercepting financial cybercrimes before the money moves.
+      </div>
+      <div class="card card-blue" style="max-width: 650px;">
+        <div style="display: flex; gap: 20px; font-size: 0.95rem;">
+          <div><strong>Team:</strong> FraudShield Core</div>
+          <div><strong>Track:</strong> AI &amp; Cybersecurity</div>
+          <div><strong>Mode:</strong> Full-Stack + ML + Sockets</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Problem Statement -->
+    <div class="slide" id="slide-2">
+      <div class="slide-tag">Problem Statement</div>
+      <div class="slide-title">The Multi-Vector Fraud Threat in UPI</div>
+      <div class="grid-2">
+        <div>
+          <div class="card card-red" style="margin-bottom: 20px;">
+            <div class="card-title danger">🚨 The Social Engineering Dilemma</div>
+            <div class="card-body">
+              UPI processes over <strong>13 billion transactions monthly</strong>. Fraudsters now use psychological coercion to convince victims into authorizing payments themselves.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">🔍 Common Attack Vectors:</div>
+            <div class="card-body">
+              • <strong>Voice Phishing (Vishing)</strong>: Fake bank managers &amp; police officials.<br>
+              • <strong>Urgent KYC Coercion</strong>: "Your account will be frozen in 10 minutes".<br>
+              • <strong>Credential Theft</strong>: Fake refund links requesting OTP / PIN.<br>
+              • <strong>Remote Access Traps</strong>: AnyDesk, TeamViewer screen sharing.
+            </div>
+          </div>
+        </div>
+        <div class="card card-blue">
+          <div class="card-title highlight">Blindspot of Traditional Systems</div>
+          <div class="card-body" style="font-size: 1rem; line-height: 1.7;">
+            Legacy payment gateways evaluate only <strong>amounts and static thresholds</strong> after or during execution.<br><br>
+            To legacy systems, a ₹40,000 transfer initiated by a panicked victim looks <span class="danger">100% syntactically valid</span>.<br><br>
+            <strong>FraudShield solves this</strong> by analyzing pre-execution context across 5 signal layers.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Why Existing Approaches Fail -->
+    <div class="slide" id="slide-3">
+      <div class="slide-tag">Comparative Analysis</div>
+      <div class="slide-title">Why Existing Banking Defenses Fall Short</div>
+      <div class="grid-2">
+        <div class="card card-red">
+          <div class="card-title danger">❌ Traditional Approach</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • <strong>Post-Transaction Batch Analysis</strong>: Detects fraud after money is gone.<br>
+            • <strong>Opaque Black-Box Errors</strong>: "Transaction Failed: Code 99" frustrates users.<br>
+            • <strong>High False-Positive Disruption</strong>: Hard-blocks legitimate unusual emergency buys.<br>
+            • <strong>No Voice Context</strong>: Unaware that user is on an active scam call.
+          </div>
+        </div>
+        <div class="card card-green">
+          <div class="card-title success">✅ FraudShield Defense</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • <strong>Pre-Execution Interception</strong>: Sub-50ms check before money leaves.<br>
+            • <strong>Explainable AI (XAI)</strong>: Clear natural language bullet points.<br>
+            • <strong>Human-in-the-Loop Tiering</strong>: Warn &amp; Confirm instead of hard blocks.<br>
+            • <strong>Voice &amp; Graph Integration</strong>: Fuses active call scans &amp; mule rings.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Proposed Solution -->
+    <div class="slide" id="slide-4">
+      <div class="slide-tag">Proposed Solution</div>
+      <div class="slide-title">Multi-Signal Pre-Execution Fusion Engine</div>
+      <div class="grid-3" style="margin-bottom: 25px;">
+        <div class="card card-blue">
+          <div class="card-title highlight">1. Multi-Vector Signals</div>
+          <div class="card-body">Transaction ML + Device Trust + Behavioral Baselines + Voice Phishing NLP + Fraud Graph.</div>
+        </div>
+        <div class="card card-blue">
+          <div class="card-title highlight">2. Central Risk Engine</div>
+          <div class="card-body">Dynamic normalization formula aggregates component weights into a unified 0–100 score.</div>
+        </div>
+        <div class="card card-blue">
+          <div class="card-title highlight">3. Explainable Output</div>
+          <div class="card-body">Synthesizes plain-English risk factors explaining exactly why the payment is suspicious.</div>
+        </div>
+      </div>
+      <div class="card card-green" style="text-align: center;">
+        <div style="font-size: 1.1rem; font-weight: 700; color: #34d399;">
+          LOW (0-39): Seamless Allow &nbsp; | &nbsp; MEDIUM (40-69): Warn &amp; Confirm &nbsp; | &nbsp; HIGH (70-100): Strong Warning &amp; Live Socket Alert
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: System Architecture -->
+    <div class="slide" id="slide-5">
+      <div class="slide-tag">Architecture</div>
+      <div class="slide-title">4-Tier System Architecture</div>
+      <div class="grid-2">
+        <pre>
+                  USER (React 18 + Vite + MUI)
+                               │
+                               ▼
+                   Node.js &amp; Express Gateway
+                   (REST + Socket.IO + JWT)
+                               │
+      ┌────────────────────────┼────────────────────────┐
+      ▼                        ▼                        ▼
+ Transaction ML          Voice Phishing            Fraud Graph
+(Python Microservice)   (Acoustic / NLP)         (BFS Traversal)
+      │                        │                        │
+      └────────────────────────┼────────────────────────┘
+                               ▼
+                      Central Risk Engine
+                 (Dynamic Normalized Formula)
+                               │
+                               ▼
+                     Explainable Risk Score
+                               │
+                  ┌────────────┴────────────┐
+                  ▼                         ▼
+             User Warning              Admin Monitor
+           (Warn &amp; Confirm)          (Live WebSockets)
+        </pre>
+        <div class="card">
+          <div class="card-title">Technology Stack:</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • <strong>Frontend:</strong> React 18, Vite, Material UI, Vis.js Graph<br>
+            • <strong>Backend API:</strong> Node.js, Express, Socket.IO, Helmet<br>
+            • <strong>Database:</strong> MongoDB Atlas (Mongoose)<br>
+            • <strong>Machine Learning:</strong> Python, scikit-learn, Platt Scaling<br>
+            • <strong>Voice Processing:</strong> Web Speech API, Scam Lexicon NLP
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Central Risk Engine -->
+    <div class="slide" id="slide-6">
+      <div class="slide-tag">Mathematical Formulation</div>
+      <div class="slide-title">Central Multi-Signal Risk Engine</div>
+      <div class="card card-blue" style="margin-bottom: 25px; text-align: center;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; color: #38bdf8; font-weight: 700;">
+          R_composite = ( Σ [ W_i * S_i ] ) / ( Σ W_i )
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title highlight">W₁ = 0.30</div>
+          <div class="card-body"><strong>Transaction ML</strong><br>Probabilistic inference on amount, hour, frequency, failures.</div>
+        </div>
+        <div class="card">
+          <div class="card-title highlight">W₂ = 0.20</div>
+          <div class="card-body"><strong>Behavioral Baseline</strong><br>Deviation from historical averages and nighttime anomalies.</div>
+        </div>
+        <div class="card">
+          <div class="card-title highlight">W₃ = 0.20</div>
+          <div class="card-body"><strong>Device Intelligence</strong><br>Hardware fingerprint novelty and device trust score.</div>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top: 15px;">
+        <div class="card">
+          <div class="card-title highlight">W₄ = 0.15</div>
+          <div class="card-body"><strong>Voice Phishing NLP</strong><br>Scam keywords, coercion, and OTP demands in active call.</div>
+        </div>
+        <div class="card">
+          <div class="card-title highlight">W₅ = 0.15</div>
+          <div class="card-body"><strong>Fraud Syndicate Graph</strong><br>Multi-hop BFS proximity to reported mule account clusters.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Voice Phishing Detection -->
+    <div class="slide" id="slide-7">
+      <div class="slide-tag">Voice Shield</div>
+      <div class="slide-title">Voice Phishing &amp; Social Engineering Shield</div>
+      <div class="grid-2">
+        <div class="card card-blue">
+          <div class="card-title highlight">🎙️ In-Memory Acoustic &amp; NLP Scanner</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • <strong>Authority Impersonation</strong>: Detects claims of RBI, Police, or Bank Manager.<br>
+            • <strong>Extreme Urgency</strong>: Flags "Within 10 mins", "Account blocked", "Arrest warrant".<br>
+            • <strong>Credential Theft</strong>: Intercepts requests for 6-digit OTP, MPIN, CVV.<br>
+            • <strong>Remote Access Traps</strong>: AnyDesk, TeamViewer, QuickSupport.
+          </div>
+        </div>
+        <div class="card card-green">
+          <div class="card-title success">🔒 Privacy-by-Design Safeguards</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • <strong>Zero Persistent Audio</strong>: Waveforms processed in volatile memory and immediately discarded.<br>
+            • <strong>Token-Only Scanning</strong>: Evaluates only scam intent phrases; ignores private dialogue.<br>
+            • <strong>DPDP Act 2023 Compliant</strong>: Minimizes personal data exposure.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8: Device & Behavioral Intelligence -->
+    <div class="slide" id="slide-8">
+      <div class="slide-tag">Device &amp; Behavioral</div>
+      <div class="slide-title">Hardware Fingerprints &amp; Behavioral Profiling</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title highlight">📱 Device Trust Scoring (0–100)</div>
+          <div class="card-body" style="line-height: 1.7;">
+            • Generates hardware signature hashes based on Model, OS, Browser, and Resolution.<br>
+            • <strong>Trusted (70–100)</strong>: Known primary smartphone with long-term history.<br>
+            • <strong>Untrusted / Flagged (0–30)</strong>: Unfamiliar device or shared across multiple victim accounts.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title highlight">📊 Dynamic Behavioral Baselines</div>
+          <div class="card-body" style="line-height: 1.7;">
+            • Learns personalized normal spending windows (e.g. 8 AM – 10 PM).<br>
+            • Tracks historical average amounts and transaction velocity.<br>
+            • Flags sudden 8.0x multipliers or rapid consecutive failure bursts.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9: Fraud Relationship Graph -->
+    <div class="slide" id="slide-9">
+      <div class="slide-tag">Syndicate Traversal</div>
+      <div class="slide-title">Multi-Hop Fraud Relationship Graph</div>
+      <div class="grid-2">
+        <pre>
+   [User: Victim 1] ───┐
+                       ├──> [Hardware ID: #99b] &lt;─── [User: Victim 2]
+   [User: Victim 3] ───┘           │
+                                   ▼
+                       [Recipient: scammer@upi]
+                                   │
+                    ┌──────────────┴──────────────┐
+                    ▼                             ▼
+           [Mule Account Alpha]          [Mule Account Beta]
+        </pre>
+        <div class="card card-red">
+          <div class="card-title danger">🕸️ Uncovering Organized Rings</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • <strong>3-Hop BFS Graph Traversal</strong> connects users, devices, IPs, and recipient handles.<br>
+            • <strong>Shared Hardware Mule Rings</strong>: Single burner phone operating across multiple victim accounts.<br>
+            • <strong>Syndicate Fan-Out</strong>: Rapid dispersion of funds across mule tiers.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 10: Explainable AI Warning -->
+    <div class="slide" id="slide-10">
+      <div class="slide-tag">Explainable AI (XAI)</div>
+      <div class="slide-title">Explainable Risk Warnings for Users</div>
+      <div class="card card-red" style="margin-bottom: 20px;">
+        <div class="card-title danger">⚠️ HIGH FRAUD RISK WARNING (Score: 91/100)</div>
+        <div class="card-body" style="font-size: 1rem; line-height: 1.8; color: #f8fafc;">
+          • <strong>Active Voice Phishing Threat</strong>: Call detected keywords 'Urgent KYC' and 'OTP Request'.<br>
+          • <strong>Unusual Amount Multiplier</strong>: ₹40,000 is 8.0x higher than your daily average (₹5,000).<br>
+          • <strong>Abnormal Night Hour</strong>: Payment initiated at 2:00 AM outside normal window.<br>
+          • <strong>Syndicate Association</strong>: Recipient UPI handle is linked to 4 reported mule accounts.
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card card-green" style="text-align: center;">
+          <div style="font-weight: 700; color: #34d399;">❌ Cancel Transaction (Recommended)</div>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="color: #cbd5e1;">I Understand Risk &amp; Proceed</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 11: Real-Time Admin Dashboard -->
+    <div class="slide" id="slide-11">
+      <div class="slide-tag">Institutional Portal</div>
+      <div class="slide-title">Real-Time Institutional Live Command Center</div>
+      <div class="grid-2">
+        <div class="card card-blue">
+          <div class="card-title highlight">⚡ Sub-Second WebSocket Streaming</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • <strong>Socket.IO Live Feed</strong>: Newly evaluated high-risk events push instantly.<br>
+            • <strong>Zero Page Refreshes</strong>: Investigators see threats in live real-time.<br>
+            • <strong>Automated Case Triage</strong>: High-risk transfers auto-spawn investigation tickets.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">🔍 Investigation &amp; Compliance Tools</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • <strong>Interactive Graph Viewer</strong>: Multi-hop canvas with physics-based layout.<br>
+            • <strong>False-Positive Hub</strong>: Review user disputes &amp; calibrate thresholds.<br>
+            • <strong>Immutable Audit Log</strong>: Timestamped compliance history for regulators.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 12: ML Evaluation -->
+    <div class="slide" id="slide-12">
+      <div class="slide-tag">Machine Learning Evaluation</div>
+      <div class="slide-title">Measured Model Benchmark &amp; Calibration</div>
+      <div style="font-size: 0.95rem; color: #94a3b8; margin-bottom: 15px;">
+        Evaluated on independent 900-sample test set (Dataset: 6,000 records, 82.7% Legit / 17.3% Fraud):
+      </div>
+      <table class="table-custom">
+        <thead>
+          <tr>
+            <th>Model Architecture</th>
+            <th>Accuracy</th>
+            <th>Precision</th>
+            <th>Recall (Catch Rate)</th>
+            <th>F1-Score</th>
+            <th>ROC-AUC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: rgba(56, 189, 248, 0.1);">
+            <td><strong style="color: #38bdf8;">Calibrated Logistic (Deployed)</strong></td>
+            <td>74.67%</td>
+            <td>38.08%</td>
+            <td><strong class="success">73.72%</strong></td>
+            <td>50.22%</td>
+            <td><strong>82.81%</strong></td>
+          </tr>
+          <tr>
+            <td>Random Forest Classifier</td>
+            <td>80.44%</td>
+            <td>45.24%</td>
+            <td>60.90%</td>
+            <td>51.91%</td>
+            <td>82.82%</td>
+          </tr>
+          <tr>
+            <td>Gradient Boosting Classifier</td>
+            <td><strong>84.33%</strong></td>
+            <td>58.24%</td>
+            <td><span class="danger">33.97%</span></td>
+            <td>42.91%</td>
+            <td>82.48%</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="card card-blue" style="margin-top: 20px;">
+        <div class="card-body">
+          <strong>Why High Recall is Critical</strong>: Gradient Boosting achieved high accuracy but missed <strong>66% of all fraud attacks ($FN=103$)</strong>! Calibrated Logistic Regression caught <strong>73.72% ($TP=115$)</strong> while Platt scaling reduced Brier loss to <strong>0.1137</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 13: Privacy & Security -->
+    <div class="slide" id="slide-13">
+      <div class="slide-tag">Security &amp; Compliance</div>
+      <div class="slide-title">Privacy-by-Design &amp; Threat Model</div>
+      <div class="grid-2">
+        <div class="card card-green">
+          <div class="card-title success">🛡️ What FraudShield NEVER Collects</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • ❌ <strong>UPI MPINs / Card PINs</strong> (Never requested)<br>
+            • ❌ <strong>One-Time Passwords (OTPs)</strong> (Never stored)<br>
+            • ❌ <strong>Bank NetBanking Passwords</strong><br>
+            • ❌ <strong>Raw Voice Recordings</strong> (Ephemeral in-memory only)
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title highlight">🔒 Defense-in-Depth Engineering</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • <strong>One-Way SHA-256 IP Hashing</strong> (`sha256(ip + salt)`)<br>
+            • <strong>Role-Based Access Control (RBAC)</strong> via JWT<br>
+            • <strong>Helmet Headers + CORS + Rate Limiting</strong><br>
+            • <strong>DPDP Act 2023 &amp; RBI Guideline Alignment</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 14: Live Demo Workflow -->
+    <div class="slide" id="slide-14">
+      <div class="slide-tag">Live Demonstration</div>
+      <div class="slide-title">Dual-Browser Live Demo Sequence</div>
+      <div class="grid-2">
+        <div class="card card-blue">
+          <div class="card-title highlight">Browser 1: User Experience</div>
+          <div class="card-body" style="line-height: 1.8;">
+            1. <strong>₹500 Grocery Payment</strong> ➔ Instant Green Pass (12/100)<br>
+            2. <strong>Voice Phishing Call</strong> ➔ Voice Shield flags 96% Risk<br>
+            3. <strong>₹40,000 Transfer</strong> ➔ 91/100 High Risk Warning Screen<br>
+            4. <strong>User reviews XAI reasons and Cancels</strong>
+          </div>
+        </div>
+        <div class="card card-red">
+          <div class="card-title danger">Browser 2: Admin Live Monitor</div>
+          <div class="card-body" style="line-height: 1.8;">
+            1. <strong>Zero Refresh</strong> ➔ Event streams in via WebSockets<br>
+            2. <strong>Case #FC-9021</strong> auto-spawns on the feed<br>
+            3. <strong>Investigator opens 3-Hop Graph</strong> ➔ Identifies mule ring<br>
+            4. <strong>Case confirmed &amp; recipient frozen</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 15: Impact & Future Scope -->
+    <div class="slide" id="slide-15">
+      <div class="slide-tag">Impact &amp; Roadmap</div>
+      <div class="slide-title">Business Impact &amp; Production Roadmap</div>
+      <div class="grid-2">
+        <div class="card card-green">
+          <div class="card-title success">📈 Immediate Real-World Impact</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • <strong>Eliminates Social Engineering Success</strong>: Breaks coercion loop right before funds transfer.<br>
+            • <strong>Reduces Bank Support Overhead</strong>: Plain-text XAI empowers users to self-resolve warnings.<br>
+            • <strong>Disrupts Organized Syndicates</strong>: Graph clustering intercepts mule networks.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title highlight">🚀 Future Production Roadmap</div>
+          <div class="card-body" style="line-height: 1.8;">
+            • Multilingual NLP models for Indian regional dialects.<br>
+            • NPCI UPI Gateway Pre-Auth Middleware integration.<br>
+            • Distributed Neo4j graph cluster scaling to 100M+ entities.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 16: Summary & Closing -->
+    <div class="slide" id="slide-16">
+      <div class="slide-tag">Conclusion</div>
+      <div class="hero-title" style="font-size: 2.6rem;">FraudShield</div>
+      <div class="hero-subtitle">Summary of Key Innovations</div>
+      <div class="grid-3" style="margin-bottom: 25px;">
+        <div class="card"><div class="card-title highlight">01. Multi-Signal</div><div class="card-body">ML + Device + Behavior + Voice + Graph</div></div>
+        <div class="card"><div class="card-title highlight">02. Explainable AI</div><div class="card-body">Plain-text reasons for every risk score</div></div>
+        <div class="card"><div class="card-title highlight">03. Voice Shield</div><div class="card-body">Real-time scam keyword &amp; OTP detection</div></div>
+      </div>
+      <div class="card card-blue" style="text-align: center; padding: 20px;">
+        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">
+          "We don't just detect fraud. We explain the risk before the money moves."
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Control Bar -->
+  <div class="controls">
+    <button class="btn" id="prevBtn" onclick="prevSlide()">◀ Previous</button>
+    <div style="font-size: 0.85rem; color: #64748b;">Use Left/Right Arrow Keys or Buttons to Navigate</div>
+    <button class="btn btn-primary" id="nextBtn" onclick="nextSlide()">Next Slide ▶</button>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 16;
+
+    function updateSlide() {
+      document.querySelectorAll('.slide').forEach((slide, index) => {
+        if (index + 1 === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      document.getElementById('counter').innerText = `Slide ${currentSlide} / ${totalSlides}`;
+      document.getElementById('prevBtn').disabled = currentSlide === 1;
+      document.getElementById('nextBtn').innerText = currentSlide === totalSlides ? 'Finish Presentation 🏁' : 'Next Slide ▶';
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    updateSlide();
+  </script>
+</body>
+</html>

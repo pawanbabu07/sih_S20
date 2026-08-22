@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="100%" stop-color="#05070c"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  
+  <!-- Navbar -->
+  <rect x="0" y="0" width="1200" height="70" fill="#0f172a" opacity="0.8"/>
+  <line x1="0" y1="70" x2="1200" y2="70" stroke="#1e293b" stroke-width="1"/>
+  
+  <text x="60" y="44" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="20" font-weight="800" letter-spacing="1">🛡️ FRAUDSHIELD</text>
+  <text x="650" y="42" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14" font-weight="500">Features</text>
+  <text x="740" y="42" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14" font-weight="500">Architecture</text>
+  <text x="860" y="42" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14" font-weight="500">Voice Shield</text>
+  
+  <!-- Login & Launch buttons -->
+  <rect x="980" y="18" width="80" height="34" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="1020" y="40" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Login</text>
+  
+  <rect x="1075" y="18" width="90" height="34" rx="6" fill="url(#primaryGrad)"/>
+  <text x="1120" y="40" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Launch Demo</text>
+
+  <!-- Hero Section -->
+  <g transform="translate(100, 140)">
+    <rect x="0" y="0" width="220" height="28" rx="14" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+    <text x="110" y="19" fill="#60a5fa" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">⚡ SMART INDIA HACKATHON</text>
+
+    <text x="0" y="80" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Explainable Real-Time</text>
+    <text x="0" y="135" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5">Fraud Shield for UPI &amp; Voice</text>
+
+    <text x="0" y="185" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="17" font-weight="400">Detect social engineering, voice vishing, and mule syndicates before</text>
+    <text x="0" y="210" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="17" font-weight="400">funds depart. Explainable AI protection with human-in-the-loop.</text>
+
+    <!-- CTAs -->
+    <rect x="0" y="250" width="180" height="48" rx="8" fill="url(#primaryGrad)"/>
+    <text x="90" y="280" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Try Live Payment ➔</text>
+
+    <rect x="200" y="250" width="180" height="48" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="290" y="280" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="15" font-weight="600" text-anchor="middle">Admin Live Monitor</text>
+  </g>
+
+  <!-- Hero Visual Card (Right) -->
+  <g transform="translate(680, 130)">
+    <rect width="440" height="320" rx="14" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="20" y="20" width="400" height="50" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+    <circle cx="45" cy="45" r="14" fill="#ef4444" opacity="0.2"/>
+    <text x="45" y="50" fill="#ef4444" font-family="system-ui, sans-serif" font-size="14" text-anchor="middle">⚠️</text>
+    <text x="75" y="42" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="700">HIGH RISK DETECTED (Score: 91/100)</text>
+    <text x="75" y="58" fill="#f87171" font-family="system-ui, sans-serif" font-size="11">Active Voice Phishing + Unusual 2 AM Transfer</text>
+
+    <!-- Multi-Signal Breakdown Mini -->
+    <text x="25" y="105" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">PRE-EXECUTION SIGNALS ANALYZED:</text>
+    
+    <rect x="25" y="120" width="390" height="35" rx="6" fill="#1e1e38"/>
+    <text x="40" y="142" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Transaction ML:</text>
+    <text x="140" y="142" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11">₹40,000 to New Recipient (Risk: 88%)</text>
+
+    <rect x="25" y="165" width="390" height="35" rx="6" fill="#1e1e38"/>
+    <text x="40" y="187" fill="#a855f7" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Voice Shield:</text>
+    <text x="140" y="187" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11">Urgency &amp; OTP Demand Scam (96%)</text>
+
+    <rect x="25" y="210" width="390" height="35" rx="6" fill="#1e1e38"/>
+    <text x="40" y="232" fill="#f43f5e" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Fraud Graph:</text>
+    <text x="140" y="232" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11">Shared Hardware Syndicate Node (85%)</text>
+
+    <!-- Action buttons preview -->
+    <rect x="25" y="260" width="185" height="38" rx="6" fill="#ef4444"/>
+    <text x="117" y="284" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Cancel Transaction</text>
+
+    <rect x="230" y="260" width="185" height="38" rx="6" fill="#334155"/>
+    <text x="322" y="284" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12" font-weight="600" text-anchor="middle">I Understand Risk</text>
+  </g>
+
+  <!-- 3 Feature Highlights at Bottom -->
+  <g transform="translate(100, 510)">
+    <!-- Box 1 -->
+    <rect x="0" y="0" width="310" height="170" rx="10" fill="url(#cardGrad)" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="25" y="40" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="24">🧠</text>
+    <text x="25" y="75" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Explainable AI (XAI)</text>
+    <text x="25" y="105" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Clear natural language explanations for</text>
+    <text x="25" y="125" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">every risk score. No opaque black boxes.</text>
+
+    <!-- Box 2 -->
+    <rect x="345" y="0" width="310" height="170" rx="10" fill="url(#cardGrad)" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="370" y="40" fill="#a855f7" font-family="system-ui, sans-serif" font-size="24">🎙️</text>
+    <text x="370" y="75" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Voice Phishing Shield</text>
+    <text x="370" y="105" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Live in-memory scanning of phone calls</text>
+    <text x="370" y="125" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">for OTP theft, coercion &amp; AnyDesk apps.</text>
+
+    <!-- Box 3 -->
+    <rect x="690" y="0" width="310" height="170" rx="10" fill="url(#cardGrad)" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="715" y="40" fill="#10b981" font-family="system-ui, sans-serif" font-size="24">🕸️</text>
+    <text x="715" y="75" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Fraud Relationship Graph</text>
+    <text x="715" y="105" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Multi-hop graph traversal detects mule</text>
+    <text x="715" y="125" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">syndicates and shared device hardware.</text>
+  </g>
+</svg>

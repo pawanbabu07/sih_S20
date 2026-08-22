@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="100%" stop-color="#05070c"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+
+  <!-- Top Navbar -->
+  <rect x="0" y="0" width="1200" height="65" fill="#0f172a"/>
+  <line x1="0" y1="65" x2="1200" y2="65" stroke="#1e293b" stroke-width="1"/>
+  <text x="50" y="40" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="18" font-weight="800">🛡️ FRAUDSHIELD</text>
+  <text x="240" y="40" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Dashboard</text>
+  <text x="340" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Make Payment</text>
+  <text x="460" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Voice Shield</text>
+  <text x="570" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Security Center</text>
+
+  <!-- User Profile Chip -->
+  <rect x="1020" y="15" width="140" height="35" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <circle cx="1038" cy="32" r="10" fill="#3b82f6"/>
+  <text x="1055" y="37" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Rituraj M.</text>
+
+  <!-- Header Content -->
+  <text x="50" y="115" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="24" font-weight="700">User Security &amp; Protection Overview</text>
+  <text x="50" y="138" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Real-time telemetry and explainable transaction defense status</text>
+
+  <!-- 4 Stat Summary Cards -->
+  <!-- Stat 1 -->
+  <g transform="translate(50, 165)">
+    <rect width="255" height="110" rx="10" fill="url(#cardGrad)" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">ACCOUNT PROTECTION</text>
+    <text x="20" y="70" fill="#34d399" font-family="system-ui, sans-serif" font-size="28" font-weight="800">ACTIVE 🟢</text>
+    <text x="20" y="95" fill="#6ee7b7" font-family="system-ui, sans-serif" font-size="11">5 Multi-Signal Engines Online</text>
+  </g>
+
+  <!-- Stat 2 -->
+  <g transform="translate(330, 165)">
+    <rect width="255" height="110" rx="10" fill="url(#cardGrad)" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">TRUSTED DEVICE SCORE</text>
+    <text x="20" y="70" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="28" font-weight="800">94 / 100</text>
+    <text x="20" y="95" fill="#7dd3fc" font-family="system-ui, sans-serif" font-size="11">Hardware Fingerprint Verified</text>
+  </g>
+
+  <!-- Stat 3 -->
+  <g transform="translate(610, 165)">
+    <rect width="255" height="110" rx="10" fill="url(#cardGrad)" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">INTERCEPTED ATTEMPTS</text>
+    <text x="20" y="70" fill="#f87171" font-family="system-ui, sans-serif" font-size="28" font-weight="800">3 Prevented</text>
+    <text x="20" y="95" fill="#fca5a5" font-family="system-ui, sans-serif" font-size="11">₹88,000 Total Value Protected</text>
+  </g>
+
+  <!-- Stat 4 -->
+  <g transform="translate(890, 165)">
+    <rect width="255" height="110" rx="10" fill="url(#cardGrad)" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">VOICE SHIELD STATUS</text>
+    <text x="20" y="70" fill="#c084fc" font-family="system-ui, sans-serif" font-size="28" font-weight="800">STANDBY</text>
+    <text x="20" y="95" fill="#d8b4fe" font-family="system-ui, sans-serif" font-size="11">Listening for Scam Lexicons</text>
+  </g>
+
+  <!-- Recent Transactions Table Card -->
+  <g transform="translate(50, 305)">
+    <rect width="1100" height="400" rx="12" fill="url(#cardGrad)" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="30" y="38" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Recent Protected Transactions</text>
+    <text x="30" y="58" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Pre-execution risk scores and disposition status</text>
+
+    <!-- Table Header -->
+    <rect x="30" y="75" width="1040" height="35" fill="#0f172a" rx="6"/>
+    <text x="45" y="97" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">RECIPIENT</text>
+    <text x="300" y="97" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">AMOUNT</text>
+    <text x="440" y="97" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">RISK SCORE</text>
+    <text x="600" y="97" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">PRIMARY SIGNALS</text>
+    <text x="920" y="97" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">DISPOSITION</text>
+
+    <!-- Row 1: Intercepted High Risk -->
+    <rect x="30" y="120" width="1040" height="55" fill="#1e1e38" rx="6"/>
+    <text x="45" y="145" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">urgent_kyc_support@upi</text>
+    <text x="45" y="162" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">Unrecognized Recipient</text>
+    <text x="300" y="152" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="700">₹40,000</text>
+    <rect x="440" y="135" width="70" height="24" rx="12" fill="#7f1d1d"/>
+    <text x="475" y="151" fill="#fca5a5" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">91 HIGH</text>
+    <text x="600" y="145" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Voice Phishing Scam + Night Hour + Mule Ring</text>
+    <text x="600" y="160" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">XAI: 8.0x above average, OTP demand active</text>
+    <rect x="920" y="135" width="110" height="24" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+    <text x="975" y="151" fill="#f87171" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">CANCELLED</text>
+
+    <!-- Row 2: Medium Risk -->
+    <rect x="30" y="185" width="1040" height="55" fill="#141c2e" rx="6"/>
+    <text x="45" y="210" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">rahul_new_freelancer@upi</text>
+    <text x="45" y="227" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">First-time Recipient</text>
+    <text x="300" y="217" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="700">₹8,000</text>
+    <rect x="440" y="200" width="70" height="24" rx="12" fill="#78350f"/>
+    <text x="475" y="216" fill="#fcd34d" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">54 MED</text>
+    <text x="600" y="210" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">New Recipient Novelty + Moderate Amount</text>
+    <text x="600" y="225" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">XAI: Warned and confirmed by user</text>
+    <rect x="920" y="200" width="110" height="24" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+    <text x="975" y="216" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">CONFIRMED</text>
+
+    <!-- Row 3: Low Risk -->
+    <rect x="30" y="250" width="1040" height="55" fill="#141c2e" rx="6"/>
+    <text x="45" y="275" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">groceries@upi (FreshMart)</text>
+    <text x="45" y="292" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">Habitual Merchant</text>
+    <text x="300" y="282" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="700">₹500</text>
+    <rect x="440" y="265" width="70" height="24" rx="12" fill="#064e3b"/>
+    <text x="475" y="281" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">12 LOW</text>
+    <text x="600" y="275" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="11">Trusted Device + Normal Amount + Usual Hour</text>
+    <text x="600" y="290" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">XAI: Standard routine transaction</text>
+    <rect x="920" y="265" width="110" height="24" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+    <text x="975" y="281" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">COMPLETED</text>
+  </g>
+</svg>

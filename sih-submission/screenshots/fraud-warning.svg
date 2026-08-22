@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="100%" stop-color="#05070c"/>
+    </linearGradient>
+    <linearGradient id="modalCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="redGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+
+  <!-- Dimmed Background Overlay -->
+  <rect width="1200" height="750" fill="#000000" opacity="0.6"/>
+
+  <!-- High Risk Warning Modal Box -->
+  <g transform="translate(250, 60)">
+    <rect width="700" height="630" rx="16" fill="url(#modalCard)" stroke="#ef4444" stroke-width="2"/>
+    
+    <!-- Header Banner -->
+    <rect x="0" y="0" width="700" height="85" rx="16" fill="#7f1d1d"/>
+    <circle cx="50" cy="42" r="22" fill="#ef4444"/>
+    <text x="50" y="50" fill="#ffffff" font-family="system-ui, sans-serif" font-size="20" font-weight="900" text-anchor="middle">⚠️</text>
+    <text x="90" y="38" fill="#ffffff" font-family="system-ui, sans-serif" font-size="20" font-weight="800">HIGH FRAUD RISK DETECTED</text>
+    <text x="90" y="60" fill="#fca5a5" font-family="system-ui, sans-serif" font-size="13">Multiple high-severity social engineering &amp; anomaly signals triggered</text>
+
+    <!-- Score Pill -->
+    <rect x="560" y="24" width="110" height="38" rx="19" fill="#0f172a" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="615" y="48" fill="#ef4444" font-family="system-ui, sans-serif" font-size="15" font-weight="800" text-anchor="middle">91 / 100</text>
+
+    <!-- Transaction Summary -->
+    <g transform="translate(35, 105)">
+      <rect width="630" height="60" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
+      <text x="20" y="26" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">TRANSFER ATTEMPT</text>
+      <text x="20" y="46" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">₹40,000  ➔  urgent_kyc_support@upi</text>
+      <text x="440" y="36" fill="#f87171" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Unrecognized Recipient</text>
+    </g>
+
+    <!-- Explainable Reasons (XAI) -->
+    <text x="35" y="195" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="14" font-weight="700">EXPLAINABLE RISK REASONS (WHY THIS IS SUSPICIOUS):</text>
+
+    <!-- Reason 1 -->
+    <g transform="translate(35, 210)">
+      <rect width="630" height="50" rx="6" fill="#1e1e38" stroke="#334155" stroke-width="1"/>
+      <text x="18" y="30" fill="#ef4444" font-family="system-ui, sans-serif" font-size="14">🚨</text>
+      <text x="45" y="24" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Active Voice Phishing Threat Detected</text>
+      <text x="45" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Active phone call detected keywords: 'Urgent KYC Verification' and 'OTP Request'.</text>
+    </g>
+
+    <!-- Reason 2 -->
+    <g transform="translate(35, 270)">
+      <rect width="630" height="50" rx="6" fill="#1e1e38" stroke="#334155" stroke-width="1"/>
+      <text x="18" y="30" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="14">📈</text>
+      <text x="45" y="24" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Unusual High Amount Multiplier</text>
+      <text x="45" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">₹40,000 is 8.0x higher than your typical transaction average (₹5,000).</text>
+    </g>
+
+    <!-- Reason 3 -->
+    <g transform="translate(35, 330)">
+      <rect width="630" height="50" rx="6" fill="#1e1e38" stroke="#334155" stroke-width="1"/>
+      <text x="18" y="30" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="14">🕒</text>
+      <text x="45" y="24" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Abnormal Transaction Hour</text>
+      <text x="45" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Payment initiated at 2:00 AM, outside your normal 8 AM - 10 PM activity window.</text>
+    </g>
+
+    <!-- Reason 4 -->
+    <g transform="translate(35, 390)">
+      <rect width="630" height="50" rx="6" fill="#1e1e38" stroke="#334155" stroke-width="1"/>
+      <text x="18" y="30" fill="#ec4899" font-family="system-ui, sans-serif" font-size="14">🕸️</text>
+      <text x="45" y="24" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Fraud Relationship Syndicate Association</text>
+      <text x="45" y="40" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Recipient UPI handle and device hardware hash are linked to 4 reported mule accounts.</text>
+    </g>
+
+    <!-- Component Scores Matrix -->
+    <g transform="translate(35, 455)">
+      <rect width="630" height="55" rx="6" fill="#0f172a"/>
+      <text x="20" y="32" fill="#64748b" font-family="system-ui, sans-serif" font-size="11" font-weight="700">COMPONENTS:</text>
+      
+      <text x="110" y="32" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="11">ML Model: <tspan font-weight="700">88%</tspan></text>
+      <text x="215" y="32" fill="#a855f7" font-family="system-ui, sans-serif" font-size="11">Voice Threat: <tspan font-weight="700">96%</tspan></text>
+      <text x="330" y="32" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="11">Behavioral: <tspan font-weight="700">92%</tspan></text>
+      <text x="445" y="32" fill="#10b981" font-family="system-ui, sans-serif" font-size="11">Device Risk: <tspan font-weight="700">80%</tspan></text>
+      <text x="550" y="32" fill="#f43f5e" font-family="system-ui, sans-serif" font-size="11">Graph: <tspan font-weight="700">85%</tspan></text>
+    </g>
+
+    <!-- Action Buttons -->
+    <g transform="translate(35, 530)">
+      <!-- Cancel (Recommended) -->
+      <rect width="305" height="55" rx="8" fill="url(#redGlow)"/>
+      <text x="152" y="34" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="800" text-anchor="middle">❌ Cancel Transaction (Recommended)</text>
+
+      <!-- Override / Continue -->
+      <rect x="325" y="0" width="305" height="55" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <text x="477" y="34" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="14" font-weight="600" text-anchor="middle">I Understand Risk &amp; Wish to Proceed</text>
+    </g>
+
+    <!-- Bottom Safety Note -->
+    <text x="350" y="612" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Bank compliance &amp; cyber fraud teams have been notified of this high-risk attempt.</text>
+  </g>
+</svg>

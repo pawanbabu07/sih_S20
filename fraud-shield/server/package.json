@@ -1,0 +1,28 @@
+{
+  "name": "fraud-shield-backend",
+  "version": "1.0.0",
+  "description": "Explainable Real-Time Fraud Shield Backend Foundation",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "axios": "^1.19.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.6.2",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.1",
+    "multer": "^2.2.0",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "private": true
+}

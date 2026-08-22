@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#070a14"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="650" fill="url(#bgGrad)" rx="16"/>
+  <rect x="10" y="10" width="880" height="630" fill="none" stroke="#1e293b" stroke-width="2" rx="12"/>
+
+  <!-- Header -->
+  <text x="450" y="45" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="20" font-weight="700" text-anchor="middle" letter-spacing="1">VOICE PHISHING &amp; SOCIAL ENGINEERING FLOW</text>
+  <text x="450" y="68" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" text-anchor="middle">Real-Time In-Memory Acoustic &amp; NLP Social Engineering Detection</text>
+
+  <!-- Step 1: Ingestion -->
+  <g transform="translate(100, 95)">
+    <rect width="320" height="70" rx="8" fill="url(#cardGrad)" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="160" y="26" fill="#c084fc" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Live Audio Stream / Call Ingestion</text>
+    <text x="160" y="44" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Web Speech API / Chunked Audio Buffer</text>
+    <text x="160" y="58" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">(Zero Persistent Audio Storage — DPDP Act)</text>
+  </g>
+
+  <!-- Step 2: In-Memory STT -->
+  <g transform="translate(480, 95)">
+    <rect width="320" height="70" rx="8" fill="url(#cardGrad)" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="160" y="26" fill="#f472b6" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">In-Memory Speech-to-Text (STT)</text>
+    <text x="160" y="44" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Real-Time Phonetic &amp; Text Tokenizer</text>
+    <text x="160" y="58" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Stream Buffer Cleared Post-Transcription</text>
+  </g>
+
+  <line x1="420" y1="130" x2="480" y2="130" stroke="#8b5cf6" stroke-width="2"/>
+  <polygon points="480,130 472,126 472,134" fill="#8b5cf6"/>
+
+  <!-- Arrow down to NLP Categorization Grid -->
+  <line x1="640" y1="165" x2="640" y2="200" stroke="#ec4899" stroke-width="2"/>
+  <polygon points="640,203 636,195 644,195" fill="#ec4899"/>
+
+  <!-- Step 3: NLP Category Scanners -->
+  <g transform="translate(80, 205)">
+    <rect width="740" height="150" rx="10" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="370" y="26" fill="#818cf8" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Multi-Vector Scam NLP Classifiers &amp; Lexicon Matrix</text>
+
+    <!-- Box 1 -->
+    <rect x="25" y="45" width="160" height="85" rx="6" fill="#1e1b4b" stroke="#818cf8" stroke-width="1"/>
+    <text x="105" y="66" fill="#a5b4fc" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Authority Impersonation</text>
+    <text x="105" y="86" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="9" text-anchor="middle">RBI, Police, Bank KYC</text>
+    <text x="105" y="102" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="9" text-anchor="middle">"Head Office Manager"</text>
+
+    <!-- Box 2 -->
+    <rect x="200" y="45" width="160" height="85" rx="6" fill="#431407" stroke="#ea580c" stroke-width="1"/>
+    <text x="280" y="66" fill="#fdba74" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Urgency &amp; Coercion</text>
+    <text x="280" y="86" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="9" text-anchor="middle">"Within 10 minutes"</text>
+    <text x="280" y="102" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="9" text-anchor="middle">"Arrest Warrant", "Frozen"</text>
+
+    <!-- Box 3 -->
+    <rect x="375" y="45" width="160" height="85" rx="6" fill="#4c0519" stroke="#f43f5e" stroke-width="1"/>
+    <text x="455" y="66" fill="#fda4af" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Credential Demands</text>
+    <text x="455" y="86" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="9" text-anchor="middle">"Share 6-digit OTP"</text>
+    <text x="455" y="102" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="9" text-anchor="middle">"Enter UPI PIN to receive"</text>
+
+    <!-- Box 4 -->
+    <rect x="550" y="45" width="160" height="85" rx="6" fill="#31135e" stroke="#c084fc" stroke-width="1"/>
+    <text x="630" y="66" fill="#e9d5ff" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">Remote Access Traps</text>
+    <text x="630" y="86" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="9" text-anchor="middle">AnyDesk, TeamViewer</text>
+    <text x="630" y="102" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="9" text-anchor="middle">QuickSupport, RustDesk</text>
+  </g>
+
+  <line x1="450" y1="355" x2="450" y2="390" stroke="#6366f1" stroke-width="2"/>
+  <polygon points="450,393 446,385 454,385" fill="#6366f1"/>
+
+  <!-- Step 4: Scoring & Interception -->
+  <g transform="translate(250, 395)">
+    <rect width="400" height="60" rx="8" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="2"/>
+    <text x="200" y="25" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Voice Phishing Risk Scoring Engine</text>
+    <text x="200" y="45" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">Calculates Voice Threat Score (0–100) + Threat Tags</text>
+  </g>
+
+  <!-- Step 5: Dual Injection -->
+  <path d="M 350 455 L 350 495 L 220 495 L 220 525" fill="none" stroke="#22d3ee" stroke-width="2"/>
+  <polygon points="220,528 216,520 224,520" fill="#22d3ee"/>
+
+  <path d="M 550 455 L 550 495 L 680 495 L 680 525" fill="none" stroke="#f43f5e" stroke-width="2"/>
+  <polygon points="680,528 676,520 684,520" fill="#f43f5e"/>
+
+  <!-- Bottom Left: Injected into Central Risk Engine -->
+  <g transform="translate(100, 530)">
+    <rect width="240" height="65" rx="8" fill="url(#cardGrad)" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="120" y="24" fill="#22d3ee" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Injected to Central Risk Engine</text>
+    <text x="120" y="42" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Weighted in composite payment check</text>
+    <text x="120" y="56" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">(W4 = 0.15 dynamic factor)</text>
+  </g>
+
+  <!-- Bottom Right: Real-Time Audio Threat Banner -->
+  <g transform="translate(560, 530)">
+    <rect width="240" height="65" rx="8" fill="url(#cardGrad)" stroke="#f43f5e" stroke-width="1.5"/>
+    <text x="120" y="24" fill="#fb7185" font-family="system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Live Voice Shield UI Alert</text>
+    <text x="120" y="42" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">Visual scam banner warning user</text>
+    <text x="120" y="56" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" text-anchor="middle">"Do not share OTP / Transfer funds"</text>
+  </g>
+</svg>

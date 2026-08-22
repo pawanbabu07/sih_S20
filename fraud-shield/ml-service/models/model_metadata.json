@@ -1,0 +1,242 @@
+{
+  "modelVersion": "fraud-model-v2.0",
+  "modelType": "LogisticRegression",
+  "status": "ACTIVE",
+  "trainingDate": "2026-08-22 06:50:43 UTC",
+  "datasetVersion": "synthetic_v2.0",
+  "trainingDatasetSize": 6000,
+  "classDistribution": {
+    "legitimatePercent": 82.7,
+    "fraudPercent": 17.3,
+    "fraudCount": 1038,
+    "totalCount": 6000
+  },
+  "metrics": {
+    "accuracy": 74.67,
+    "precision": 38.08,
+    "recall": 73.72,
+    "f1Score": 50.22,
+    "rocAuc": 82.81,
+    "prAuc": 56.07
+  },
+  "calibration": {
+    "calibrated": true,
+    "method": "sigmoid_platt_scaling",
+    "brierScoreBefore": 0.1803,
+    "brierScoreAfter": 0.1137
+  },
+  "optimalThreshold": 0.4,
+  "thresholdAnalysis": [
+    {
+      "threshold": 0.4,
+      "precision": 59.14,
+      "recall": 35.48,
+      "f1": 44.35,
+      "falsePositiveRate": 5.1
+    },
+    {
+      "threshold": 0.45,
+      "precision": 64.47,
+      "recall": 31.61,
+      "f1": 42.42,
+      "falsePositiveRate": 3.62
+    },
+    {
+      "threshold": 0.5,
+      "precision": 67.65,
+      "recall": 29.68,
+      "f1": 41.26,
+      "falsePositiveRate": 2.95
+    },
+    {
+      "threshold": 0.55,
+      "precision": 71.43,
+      "recall": 22.58,
+      "f1": 34.31,
+      "falsePositiveRate": 1.88
+    },
+    {
+      "threshold": 0.6,
+      "precision": 71.79,
+      "recall": 18.06,
+      "f1": 28.87,
+      "falsePositiveRate": 1.48
+    },
+    {
+      "threshold": 0.65,
+      "precision": 72.73,
+      "recall": 15.48,
+      "f1": 25.53,
+      "falsePositiveRate": 1.21
+    },
+    {
+      "threshold": 0.7,
+      "precision": 76.0,
+      "recall": 12.26,
+      "f1": 21.11,
+      "falsePositiveRate": 0.81
+    },
+    {
+      "threshold": 0.75,
+      "precision": 85.71,
+      "recall": 11.61,
+      "f1": 20.45,
+      "falsePositiveRate": 0.4
+    },
+    {
+      "threshold": 0.8,
+      "precision": 92.31,
+      "recall": 7.74,
+      "f1": 14.29,
+      "falsePositiveRate": 0.13
+    },
+    {
+      "threshold": 0.85,
+      "precision": 100.0,
+      "recall": 1.94,
+      "f1": 3.8,
+      "falsePositiveRate": 0.0
+    }
+  ],
+  "modelComparison": [
+    {
+      "modelType": "LogisticRegression",
+      "accuracy": 74.67,
+      "precision": 38.08,
+      "recall": 73.72,
+      "f1": 50.22,
+      "rocAuc": 82.81,
+      "prAuc": 56.07,
+      "brierScore": 0.1706,
+      "confusionMatrix": {
+        "tn": 557,
+        "fp": 187,
+        "fn": 41,
+        "tp": 115
+      }
+    },
+    {
+      "modelType": "RandomForestClassifier",
+      "accuracy": 80.44,
+      "precision": 45.24,
+      "recall": 60.9,
+      "f1": 51.91,
+      "rocAuc": 82.82,
+      "prAuc": 54.55,
+      "brierScore": 0.135,
+      "confusionMatrix": {
+        "tn": 629,
+        "fp": 115,
+        "fn": 61,
+        "tp": 95
+      }
+    },
+    {
+      "modelType": "GradientBoostingClassifier",
+      "accuracy": 84.33,
+      "precision": 58.24,
+      "recall": 33.97,
+      "f1": 42.91,
+      "rocAuc": 82.48,
+      "prAuc": 52.44,
+      "brierScore": 0.1128,
+      "confusionMatrix": {
+        "tn": 706,
+        "fp": 38,
+        "fn": 103,
+        "tp": 53
+      }
+    }
+  ],
+  "featureImportances": [
+    {
+      "feature": "failed_attempts_risk",
+      "importance": 27.58
+    },
+    {
+      "feature": "is_unusual_hour",
+      "importance": 22.66
+    },
+    {
+      "feature": "transaction_frequency_ratio",
+      "importance": 12.15
+    },
+    {
+      "feature": "transaction_frequency",
+      "importance": 12.14
+    },
+    {
+      "feature": "amount",
+      "importance": 7.25
+    },
+    {
+      "feature": "amount_to_normal_ratio",
+      "importance": 7.25
+    },
+    {
+      "feature": "account_age_bucket",
+      "importance": 5.36
+    },
+    {
+      "feature": "failed_transactions",
+      "importance": 3.73
+    },
+    {
+      "feature": "account_age_days",
+      "importance": 1.16
+    },
+    {
+      "feature": "transaction_hour",
+      "importance": 0.72
+    },
+    {
+      "feature": "is_new_receiver",
+      "importance": 0.0
+    },
+    {
+      "feature": "is_new_device",
+      "importance": 0.0
+    },
+    {
+      "feature": "location_change",
+      "importance": 0.0
+    },
+    {
+      "feature": "receiver_risk",
+      "importance": 0.0
+    },
+    {
+      "feature": "device_risk",
+      "importance": 0.0
+    }
+  ],
+  "features": [
+    "amount",
+    "amount_to_normal_ratio",
+    "transaction_hour",
+    "is_unusual_hour",
+    "is_new_receiver",
+    "is_new_device",
+    "location_change",
+    "receiver_risk",
+    "device_risk",
+    "failed_transactions",
+    "failed_attempts_risk",
+    "transaction_frequency",
+    "transaction_frequency_ratio",
+    "account_age_days",
+    "account_age_bucket"
+  ],
+  "trainingDistributions": {
+    "amount": {
+      "mean": 5964.61,
+      "median": 4148.45,
+      "std": 5953.51
+    },
+    "newDeviceRate": 15.1,
+    "newReceiverRate": 25.47,
+    "locationChangeRate": 19.55,
+    "nightHourRate": 15.0,
+    "avgFrequency": 8.5
+  }
+}
