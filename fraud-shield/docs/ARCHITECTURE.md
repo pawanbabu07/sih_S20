@@ -47,29 +47,55 @@ $$\text{Final Risk Score} = \left( \text{ML} \times 0.30 \right) + \left( \text{
 
 ---
 
-## 3. Data Flow: Pre-Transaction vs Post-Transaction
+## 3. End-to-End Processing Pipeline
 
-```
-Incoming Transfer Request
-          │
-          ▼
-   [ TEMPORAL INFERENCE BOUNDARY ] (Zero Data Leakage)
-   • Device Signature Check
-   • Spend Baseline Habit Inspection
-   • Calibrated ML Fraud Probability
-   • Voice Urgency & Scams Evaluation
-   • Graph Mule Cluster Traversal
-          │
-          ▼
-   Central Risk Calculation (0 - 100)
-          │
-          ▼
-   Plain-English Signal Explanation
-          │
-   ┌──────┴──────┐
-   ▼             ▼
-User Decision   Real-Time Admin Alert (Socket.IO)
-   │             │
-   ▼             ▼
-Execution     Compliance Case Review & Audit
+```text
+                    PAYMENT
+                       │
+                       ▼
+              ┌─────────────────┐
+              │ SIGNAL COLLECTOR│
+              └────────┬────────┘
+                       │
+       ┌───────────────┼────────────────┐
+       ▼               ▼                ▼
+  Transaction        Device          Behavior
+   Analysis         Analysis         Analysis
+       │               │                │
+       └───────────────┼────────────────┘
+                       │
+                 Voice Analysis
+                       │
+                 Graph Analysis
+                       │
+                       ▼
+              ┌─────────────────┐
+              │   RISK FUSION   │
+              │     ENGINE      │
+              └────────┬────────┘
+                       │
+                       ▼
+                  ML + Rules
+                       │
+                       ▼
+                0–100 RISK SCORE
+                       │
+                       ▼
+               ATTACK CLASSIFIER
+                       │
+                       ▼
+              EXPLANATION ENGINE
+                       │
+             ┌─────────┴─────────┐
+             ▼                   ▼
+        USER WARNING        ADMIN ALERT
+             │                   │
+             ▼                   ▼
+       USER DECISION        INVESTIGATION
+                                 │
+                                 ▼
+                            FRAUD CASE
+                                 │
+                                 ▼
+                            AUDIT LOG
 ```

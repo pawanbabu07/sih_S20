@@ -53,40 +53,57 @@
 
 ---
 
-## 2. End-to-End Flow Diagram
+## 2. End-to-End Fraud Shield Processing Pipeline
 
 ```text
-Payment Started
-      ↓
-Collect Signals (Amount, Time, Device, Receiver, Voice ID)
-      ↓
-Transaction ML (Probabilistic Fraud Inference)
-      ↓
-Device Analysis (Hardware Signature & Device Trust Score)
-      ↓
-Behavior Analysis (Deviation from Historical Baseline)
-      ↓
-Voice Analysis (Active Call Transcript & Scam Keywords)
-      ↓
-Graph Analysis (BFS Multi-Hop Mule Syndicate Traversal)
-      ↓
-Central Risk Engine (Weighted Dynamic Aggregation)
-      ↓
-Final Risk Score (Composite 0–100)
-      ↓
-Explanation (Plain-Text Human-Readable XAI Reasons)
-      ↓
-User Warning (Tiered: Low / Medium / High)
-      ↓
-User Decision (Cancel Transaction or Proceed with Confirm)
-      ↓
-Transaction Result (Status: COMPLETED or CANCELLED)
-      ↓
-Real-Time Admin Event (Dispatched via Socket.IO)
-      ↓
-Case Investigation (Admin Case Triage & Graph Exploration)
-      ↓
-Audit Log (Immutable Event Log Stored in MongoDB)
+                    PAYMENT
+                       │
+                       ▼
+              ┌─────────────────┐
+              │ SIGNAL COLLECTOR│
+              └────────┬────────┘
+                       │
+       ┌───────────────┼────────────────┐
+       ▼               ▼                ▼
+  Transaction        Device          Behavior
+   Analysis         Analysis         Analysis
+       │               │                │
+       └───────────────┼────────────────┘
+                       │
+                 Voice Analysis
+                       │
+                 Graph Analysis
+                       │
+                       ▼
+              ┌─────────────────┐
+              │   RISK FUSION   │
+              │     ENGINE      │
+              └────────┬────────┘
+                       │
+                       ▼
+                  ML + Rules
+                       │
+                       ▼
+                0–100 RISK SCORE
+                       │
+                       ▼
+               ATTACK CLASSIFIER
+                       │
+                       ▼
+              EXPLANATION ENGINE
+                       │
+             ┌─────────┴─────────┐
+             ▼                   ▼
+        USER WARNING        ADMIN ALERT
+             │                   │
+             ▼                   ▼
+       USER DECISION        INVESTIGATION
+                                 │
+                                 ▼
+                            FRAUD CASE
+                                 │
+                                 ▼
+                            AUDIT LOG
 ```
 
 ---
