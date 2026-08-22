@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from predict import predict_risk, load_artifacts, get_model_metadata
 from model_comparison import run_model_comparison
