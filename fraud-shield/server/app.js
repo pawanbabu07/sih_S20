@@ -38,20 +38,34 @@ socketService.initSocket(httpServer);
 // Security Headers with Helmet
 app.use(helmet());
 
-// CORS Configuration — strict in production, flexible in development
-const allowedOrigins = process.env.NODE_ENV === 'production'
-  ? [process.env.CLIENT_URL].filter(Boolean)
-  : [process.env.CLIENT_URL || 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000'];
+// CORS Configuration — robust multi-origin and Vercel domain support
+const getAllowedOrigins = () => {
+  const configured = process.env.CLIENT_URL
+    ? process.env.CLIENT_URL.split(',').map(url => url.trim().replace(/\/+$/, '')).filter(Boolean)
+    : [];
+  return [
+    ...configured,
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:3000'
+  ];
+};
+
+const isOriginAllowed = (origin) => {
+  if (!origin) return true;
+  const normalized = origin.replace(/\/+$/, '');
+  const allowed = getAllowedOrigins();
+  if (allowed.includes(normalized)) return true;
+  if (normalized.endsWith('.vercel.app') || normalized.endsWith('.onrender.com')) return true;
+  return false;
+};
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+    if (isOriginAllowed(origin)) {
       return callback(null, true);
     }
-    const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-    return callback(new Error(msg), false);
+    return callback(null, false);
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],

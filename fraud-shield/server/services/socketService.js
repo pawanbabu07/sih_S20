@@ -31,18 +31,34 @@ const cleanOldEvents = () => {
  * Initialize Socket.IO server with production CORS and JWT authentication
  */
 const initSocket = (httpServer) => {
-  const allowedOrigins = process.env.NODE_ENV === 'production'
-    ? [process.env.CLIENT_URL].filter(Boolean)
-    : [process.env.CLIENT_URL || 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:3000'];
+  const getAllowedOrigins = () => {
+    const configured = process.env.CLIENT_URL
+      ? process.env.CLIENT_URL.split(',').map(url => url.trim().replace(/\/+$/, '')).filter(Boolean)
+      : [];
+    return [
+      ...configured,
+      'http://localhost:5173',
+      'http://127.0.0.1:5173',
+      'http://localhost:3000'
+    ];
+  };
+
+  const isOriginAllowed = (origin) => {
+    if (!origin) return true;
+    const normalized = origin.replace(/\/+$/, '');
+    const allowed = getAllowedOrigins();
+    if (allowed.includes(normalized)) return true;
+    if (normalized.endsWith('.vercel.app') || normalized.endsWith('.onrender.com')) return true;
+    return false;
+  };
 
   io = new Server(httpServer, {
     cors: {
       origin: (origin, callback) => {
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+        if (isOriginAllowed(origin)) {
           return callback(null, true);
         }
-        return callback(new Error('CORS origin not allowed for socket connection'), false);
+        return callback(null, false);
       },
       credentials: true,
       methods: ['GET', 'POST']
