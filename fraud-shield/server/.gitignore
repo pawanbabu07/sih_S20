@@ -1,2 +1,20 @@
+# Dependencies
 node_modules/
+
+# Environment Variables & Secrets (Critical: Never commit credentials)
 .env
+.env.*
+!.env.example
+
+# Temporary Uploads & Logs
+temp_uploads/
+uploads/
+logs/
+*.log
+npm-debug.log*
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

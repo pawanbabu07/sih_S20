@@ -54,9 +54,9 @@ const initSocket = (httpServer) => {
   // JWT Authentication Middleware for Socket.IO
   io.use((socket, next) => {
     try {
-      const token = socket.handshake.auth?.token || 
-                    socket.handshake.headers?.authorization?.replace(/^Bearer\s+/i, '') ||
-                    socket.handshake.query?.token;
+      const token = socket.handshake.auth?.token ||
+        socket.handshake.headers?.authorization?.replace(/^Bearer\s+/i, '') ||
+        socket.handshake.query?.token;
 
       if (!token || token === 'null' || token === 'undefined' || typeof token !== 'string') {
         return next(new Error('Authentication failed: Missing token'));

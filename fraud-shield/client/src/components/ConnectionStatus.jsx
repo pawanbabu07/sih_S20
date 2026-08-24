@@ -1,9 +1,29 @@
 import React, { useContext } from 'react';
-import { Box, Chip, Typography } from '@mui/material';
+import { Chip } from '@mui/material';
 import { SocketContext } from '../context/SocketContext';
+import { AuthContext } from '../context/AuthContext';
 
 export default function ConnectionStatus({ size = 'small' }) {
   const { connectionStatus } = useContext(SocketContext) || {};
+  const { token } = useContext(AuthContext) || {};
+
+  // If not logged in, show clean secure status or omit
+  if (!token) {
+    return (
+      <Chip
+        size={size}
+        label="● AI SHIELD ACTIVE"
+        sx={{
+          bgcolor: 'rgba(56, 189, 248, 0.12)',
+          color: '#38bdf8',
+          fontWeight: 'bold',
+          fontSize: '0.72rem',
+          border: '1px solid rgba(56, 189, 248, 0.3)',
+          '& .MuiChip-label': { px: 1 }
+        }}
+      />
+    );
+  }
 
   if (connectionStatus === 'LIVE') {
     return (

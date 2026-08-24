@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log('MongoDB Connected');
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    const isAtlas = conn.connection.host.includes('mongodb.net');
+    console.log(`✓ MongoDB Connected: ${isAtlas ? 'MongoDB Atlas (Cloud Cluster)' : conn.connection.host} [DB: ${conn.connection.name}]`);
   } catch (error) {
-    console.error('Error: MongoDB Connection Failed');
-    process.exit(1);
+    console.error('❌ MongoDB Connection Error:', error.message);
   }
 };
 

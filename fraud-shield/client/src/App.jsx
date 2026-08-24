@@ -96,7 +96,7 @@ const AppContent = () => {
 
   return (
     <BrowserRouter>
-      {token && <Navbar />}
+      <Navbar />
       <LiveAlert />
       <Routes>
         {/* Public Landing & Presentation Demo Routes */}
